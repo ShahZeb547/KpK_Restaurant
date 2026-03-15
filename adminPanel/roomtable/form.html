@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Booking</title>
+    <style>
+        .step { display:none; }
+        .step.active { display:block; }
+        input, select, textarea { width:100%; margin:5px 0; padding:8px; }
+        button { padding:10px 15px; }
+    </style>
+</head>
+<body>
+
+<form  method="POST">
+
+<!-- STEP 1 -->
+<div class="step active">
+    <h3>Client Info</h3>
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="mobile" placeholder="Mobile" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="button" onclick="nextStep()">Next</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+    <h3>Booking Info</h3>
+    <input type="date" name="checkin" required>
+    <input type="date" name="checkout" required>
+
+    <select name="room_type">
+        <option>Single</option>
+        <option>Double</option>
+        <option>Deluxe</option>
+    </select>
+
+    <input type="number" name="rooms" placeholder="No of Rooms">
+    <input type="number" name="adults" placeholder="Adults">
+    <input type="number" name="children" placeholder="Children">
+
+    <button type="button" onclick="prevStep()">Back</button>
+    <button type="button" onclick="nextStep()">Next</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+    <h3>Payment Info</h3>
+    <input type="number" name="total_amount" placeholder="Total Amount">
+
+    <select name="payment_method">
+        <option>Cash</option>
+        <option>Card</option>
+        <option>Online</option>
+    </select>
+
+    <select name="payment_status">
+        <option>Pending</option>
+        <option>Paid</option>
+    </select>
+
+    <button type="button" onclick="prevStep()">Back</button>
+    <button type="button" onclick="nextStep()">Next</button>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+    <h3>Special Request</h3>
+    <textarea name="special_request" placeholder="Any message..."></textarea>
+
+    <button type="button" onclick="prevStep()">Back</button>
+    <button type="submit">Submit</button>
+</div>
+
+</form>
+
+<script>
+let current = 0;
+let steps = document.querySelectorAll(".step");
+
+function showStep() {
+    steps.forEach(step => step.classList.remove("active"));
+    steps[current].classList.add("active");
+}
+
+function nextStep() {
+    if (current < steps.length - 1) {
+        current++;
+        showStep();
+    }
+}
+
+function prevStep() {
+    if (current > 0) {
+        current--;
+        showStep();
+    }
+}
+</script>
+
+</body>
+</html>

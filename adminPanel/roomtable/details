@@ -1,0 +1,27 @@
+{{{Client Info
+-----------
+Name
+Mobile
+Email
+Passport No
+Address
+
+Booking Info
+------------
+==== Check-in Date
+==== Check-out Date
+==== Room Type
+No of Rooms
+Adults
+Children
+
+Payment Info
+------------
+Total Amount
+Payment Method
+Payment Status
+
+Special Request
+---------------
+Message box }}}
+
